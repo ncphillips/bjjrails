@@ -1,11 +1,13 @@
-<%= stack(gap: 4, class_name: 'p-2') do %>
-  <%= heading(size: 1) do%>
-    Jiujitsu Gyms
-  <% end %>
+<%= layout(title: 'Gyms') do %>
+  <%= stack(gap: 4) do %>
+    <%= heading(size: 1) do%>
+      Jiujitsu Gyms
+    <% end %>
 
-  <%= stack(gap: 3, align: :left) do %>
-    <% @gyms.each do |gym| %>
-     <%= gym_card(gym: gym) %>
+    <%= stack(gap: 3, align: :left) do %>
+      <% @gyms.each do |gym| %>
+        <%= gym_card(gym: gym) %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

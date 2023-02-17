@@ -4,5 +4,5 @@ class GymCardComponent < ViewComponent::Base
 
   def initialize(gym:)
     @gym = gym
-  end)
+  end
 end
