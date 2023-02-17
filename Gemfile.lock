@@ -101,7 +101,6 @@ GEM
     concurrent-ruby (1.2.0)
     crass (1.0.6)
     date (3.3.3)
-    debug (1.7.1)
     devise (4.9.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -301,7 +300,6 @@ DEPENDENCIES
   annotate
   bootsnap
   capybara
-  debug
   devise
   htmlbeautifier
   importmap-rails
@@ -324,7 +322,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.2.1p31
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.6
