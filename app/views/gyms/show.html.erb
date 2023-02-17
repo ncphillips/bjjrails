@@ -1,7 +1,11 @@
-<%= heading(size: 1) do %>
-  <% @gym.name %>
-<% end%>
+<%= layout(title: @gym.name) do %>
+  <%= stack(gap: 2) do%>
+    <%= heading(size: 1) do %>
+      <% @gym.name %>
+    <% end%>
 
-<p>
-  Membership count: <%= @gym.members.count %>
-</p>
+    <p>
+      <%= @gym.members.count %> Member(s)
+    </p>
+  <% end %>
+<% end %>
