@@ -11,7 +11,7 @@ class StackComponent < ViewComponent::Base
   end
 
   def class_name
-    ['flex', gap_class, direction_class, align_class, @class_name].join(' ')
+    ['flex', 'w-full', gap_class, direction_class, align_class, @class_name].join(' ')
   end
 
   def vertical?

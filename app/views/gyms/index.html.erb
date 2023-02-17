@@ -1,0 +1,21 @@
+<%= stack(gap: 4, class_name: 'p-2') do %>
+  <%= heading(size: 1) do%>
+    Jiujitsu Gyms
+  <% end %>
+
+  <%= stack(gap: 3, align: :left) do %>
+    <% @gyms.each do |gym| %>
+      <%= content_block(class_name: "px-3 py-2 border rounded-md border-black") do %>
+        <%= stack(gap: 2) do %>
+          <%= heading(as: :h2, size: 2) do %>
+            <%= gym.name %>
+          <% end %>
+
+          <%= button(href: '#') do%>
+            Join the club
+          <% end%>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

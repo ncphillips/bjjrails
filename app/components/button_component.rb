@@ -25,7 +25,7 @@ class ButtonComponent < ViewComponent::Base
   private
 
   def base_class
-    'rounded-md border'
+    'rounded-md border text-base text-center'
   end
 
   def size_class
