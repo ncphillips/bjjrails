@@ -1,0 +1,11 @@
+<%= content_block(class_name: "px-3 py-2 border rounded-md border-black") do %>
+  <%= stack(gap: 2) do %>
+    <%= heading(as: :h2, size: 2) do %>
+      <%= gym.name %>
+    <% end %>
+
+    <%= button(href: '#') do%>
+      Join the club
+    <% end%>
+  <% end %>
+<% end %>
