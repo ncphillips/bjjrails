@@ -12,7 +12,7 @@ class HeadingComponent < ViewComponent::Base
     [sizeClass, 'font-bold'].join(' ')
   end
 
-  
-
-
+  def size
+    @size
+  end
 end

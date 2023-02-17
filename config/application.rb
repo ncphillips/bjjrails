@@ -23,10 +23,15 @@ end
 
 class ActionView::Base
   def method_missing(name, *args, **kwargs, &block)
-    view_class = Object.const_get(name.to_s.camelize + "Component")
+    begin
+      view_class = Object.const_get(name.to_s.camelize + "Component")
+    rescue StandardError => e
+    end
 
-    render(view_class.send("new", *args, **kwargs), &block)
-  rescue StandardError => e
-    super(name, *args, **kwargs, &block)
+    if view_class.present?
+      render(view_class.send("new", *args, **kwargs), &block)
+    else
+      super
+    end
   end
 end
