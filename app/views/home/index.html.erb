@@ -1,8 +1,10 @@
-<%= stack(gap: 6) do %>
-  <%= heading(size: "big") do %>
-    Hello world!
+<%= content_block(class_name: 'p-6 bg-gray-100') do %>
+  <%= stack(gap: 6, align: :center) do %>
+    <%= heading(size: "big") do %>
+      BJJ Rolls
+    <% end %>
+
+    <p>Help your team off the mats by sharing training footage.</p>
+    
   <% end %>
-
-  <p>Here is some text. </p>
 <% end %>
-

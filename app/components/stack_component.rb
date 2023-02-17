@@ -1,29 +1,62 @@
 # frozen_string_literal: true
 
 class StackComponent < ViewComponent::Base
-  attr_accessor :gap, :direction
+  attr_accessor :gap, :direction, :align
 
-  def initialize(gap: 0, direction: 'vertical')
+  def initialize(gap: 0, direction: :vertical, align: nil, class_name: '')
     @gap = gap
     @direction = direction
+    @align = align
+    @class_name = class_name
   end
 
-  def classes
-    ['flex', gap_class, direction_class].join(' ')
+  def class_name
+    ['flex', gap_class, direction_class, align_class, @class_name].join(' ')
   end
 
   def vertical?
-    'vertical' == @direction
+    :vertical == @direction
   end
 
   def horizontal
-    'horizontal' == @direction
+    :horizontal == @direction
   end
 
   private
 
   def direction_class
     vertical? ? 'flex-col' : 'flex-row'
+  end
+
+  def align_class
+    return vertical_align_class if vertical?
+    return horizontal_align_class if horizontal?
+  end
+
+  def vertical_align_class
+    return '' if align.blank?
+
+    case align
+    when :left
+      'items-start'
+    when :right
+      'items-end'
+    when :center
+      'items-center'
+    end
+  end
+
+  def horizontal_align_class
+    return '' if align.blank?
+
+    case align
+    when :left
+      'justify-start'
+    when :right
+      'justify-end'
+    when :center
+      'justify-center'
+    end
   end
 
   def gap_class
