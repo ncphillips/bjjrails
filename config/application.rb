@@ -20,3 +20,20 @@ module Bjjrails
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+class ActionView::Base
+  def method_missing(name, *args, **kwargs, &block)
+    begin
+      component_name = name.to_s.split('__').map(&:camelize).join('::') + "Component"
+
+      view_class = Object.const_get(component_name)
+    rescue StandardError => e
+    end
+
+    if view_class.present?
+      render(view_class.public_send("new", *args, **kwargs), &block)
+    else
+      super
+    end
+  end
+end
