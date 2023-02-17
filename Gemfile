@@ -54,6 +54,9 @@ group :development, :test do
 end
 
 group :development do
+  # Used by code formatter in development
+  gem 'htmlbeautifier'
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
