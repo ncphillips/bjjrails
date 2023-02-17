@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class ButtonComponent < ViewComponent::Base
-  attr_accessor :size, :variant
+  attr_accessor :id, :href, :size, :variant
 
-  def initialize(size: :md, variant: :primary, class_name: '')
+  def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '')
+    @id = id
+    @href = href
     @size = size
     @variant = variant
     @class_name = class_name
@@ -13,6 +15,13 @@ class ButtonComponent < ViewComponent::Base
     [base_class, size_class, variant_class, @class_name].join(' ')
   end
 
+  def el
+    if href.present? 
+      'a'
+    else
+      'button'
+    end
+  end
   private
 
   def base_class
