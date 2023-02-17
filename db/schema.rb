@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_17_191821) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_17_195438) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -49,6 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_191821) do
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_admin_users_on_unlock_token", unique: true
+  end
+
+  create_table "gym_memberships", id: false, force: :cascade do |t|
+    t.integer "gym_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gym_id", "user_id"], name: "index_gym_memberships_on_gym_id_and_user_id"
+    t.index ["user_id", "gym_id"], name: "index_gym_memberships_on_user_id_and_gym_id"
   end
 
   create_table "gyms", force: :cascade do |t|
