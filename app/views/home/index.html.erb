@@ -1,6 +1,10 @@
 <div>
-  <h1 class="text-3xl font-bold underline">
+  <%# Monkey Patch %>
+  <%= heading(size: "big") do %>
     Hello world!
-  </h1>
-  <p>Find me in app/views/home/index.html.erb</p>
+  <% end %>
+  <%# Original %>
+  <%= render(HeadingComponent.new(size: "big")) do%>
+    Hello world!
+  <% end %>
 </div>
