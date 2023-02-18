@@ -62,11 +62,9 @@ end
 
 group :development do
   gem 'annotate'
-
-  # Used by code formatter in development
+  gem 'bundler-audit'
+  gem 'brakeman'
   gem 'htmlbeautifier'
-
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -77,7 +75,6 @@ group :development do
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
