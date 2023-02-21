@@ -75,7 +75,7 @@ Rails.application.configure do
     :port => 587,
     :domain => "sandbox9daa0ade002c42f3bb2ef1b8bb789634.mailgun.org",
     :user_name => "bjjrolls@sandbox9daa0ade002c42f3bb2ef1b8bb789634.mailgun.org",
-    :password => ENV.fetch('MAILGUN_PASSWORD')
+    :password => ENV.fetch('MAILGUN_PASSWORD') { 'TEST' }
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
