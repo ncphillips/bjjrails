@@ -43,6 +43,8 @@ class ButtonComponent < ViewComponent::Base
     case variant
     when :primary
       'text-white bg-black border-black hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700'
+    when :secondary
+      'text-black bg-white border-black hover:bg-gray-100 active:bg-gray-200'
     end
   end
 end
