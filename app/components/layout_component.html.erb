@@ -1,3 +1,26 @@
-<%= content_block(as: :main, class_name: 'p-2') do %>
+<%= content_block(as: :nav, class_name: 'p-4') do %>
+  <%= stack(direction: :horizontal, gap: 4, class_name: 'justify-between') do %>
+    <%= stack(direction: :horizontal, gap: 2, valign: :center) do %>
+      <%= button(id: "nav-login", variant: :ghost, href: root_path) do %>
+        bjj rolls
+      <% end %>
+      <%= button(id: "nav-login", variant: :ghost, href: gyms_path) do %>
+        Gyms
+      <% end %>
+    <% end %>
+
+    <%= stack(direction: :horizontal, gap: 4) do %>
+        <%= button(id: "nav-login", variant: :secondary, href: new_admin_user_session_path) do %>
+          Sign in
+        <% end %>
+
+        <%= button(id: "nav-signup", href: new_user_registration_path) do %>
+          Sign up
+        <% end %>
+      <% end %>
+  <% end %>
+<% end %>
+  
+<%= content_block(as: :main) do %>
   <%= content%>
 <% end %>

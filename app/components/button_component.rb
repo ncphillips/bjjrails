@@ -25,7 +25,7 @@ class ButtonComponent < ViewComponent::Base
   private
 
   def base_class
-    'rounded-md border text-base text-center'
+    'rounded-md border text-center'
   end
 
   def size_class
@@ -33,9 +33,13 @@ class ButtonComponent < ViewComponent::Base
     when :sm
       ''
     when :md
-      'px-4 py-1'
+      'px-4 py-1 text-md'
     when :lg
-      ''
+      'px-5 py-2 text-lg'
+    when :xl
+      'px-6 py-3 text-xl'
+    when :xxl
+      'px-7 py-4 text-2xl'
     end
   end
 
@@ -45,6 +49,8 @@ class ButtonComponent < ViewComponent::Base
       'text-white bg-black border-black hover:bg-gray-600 hover:border-gray-600 active:bg-gray-700 active:border-gray-700'
     when :secondary
       'text-black bg-white border-black hover:bg-gray-100 active:bg-gray-200'
+    when :ghost
+      'text-black bg-white border-transparent hover:underline'
     end
   end
 end

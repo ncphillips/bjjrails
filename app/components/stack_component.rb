@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class StackComponent < ViewComponent::Base
-  attr_accessor :gap, :direction, :align
+  attr_accessor :gap, :direction, :align, :valign
 
   def initialize(gap: 0, direction: :vertical, align: nil, valign: nil, class_name: '')
     @gap = gap
@@ -12,7 +12,7 @@ class StackComponent < ViewComponent::Base
   end
 
   def class_name
-    ['flex', 'w-full', gap_class, direction_class, align_class, valign_class, @class_name].join(' ')
+    ['flex', gap_class, direction_class, align_class, valign_class, @class_name].join(' ')
   end
 
   def vertical?
@@ -62,11 +62,13 @@ class StackComponent < ViewComponent::Base
       'justify-end'
     when :center
       'justify-center'
+    when :space_between
+      'justify-between'
     end
   end
 
   def valign_class_horizontal
-    return '' if align.blank?
+    return '' if valign.blank?
 
     case align
     when :top
@@ -79,7 +81,7 @@ class StackComponent < ViewComponent::Base
   end
 
   def valign_class_vertical
-    return '' if align.blank?
+    return '' if valign.blank?
 
     case align
     when :top
