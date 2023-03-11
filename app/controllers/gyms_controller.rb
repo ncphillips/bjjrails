@@ -1,7 +1,7 @@
 class GymsController < ApplicationController
   before_action :authenticate_user!
 
-  attr_accessot :gyms, :gym
+  attr_accessor :gyms, :gym
 
   def index
     @gyms = Gym.all    
