@@ -1,3 +1,10 @@
-<<%= el %> id="<%= id %>" href="<%= href %>" class="<%= class_name %>" >
+<<%= el %> 
+  id="<%= id %>" 
+  href="<%= href %>" 
+  class="<%= class_name %>"
+  <% if type.present? %>
+  type="<%= type %>"
+  <% end %>
+>
   <%= content %>
 </<%= el %>>

@@ -1,4 +1,4 @@
-<%= layout do %>
+<%= layout(user: current_user) do %>
   <%= content_block(class_name: 'p-6 bg-gray-100') do %>
     <%= stack(gap: 6, align: :center) do %>
       <%= heading(size: "big") do %>

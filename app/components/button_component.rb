@@ -1,18 +1,23 @@
 # frozen_string_literal: true
 
 class ButtonComponent < ViewComponent::Base
-  attr_accessor :id, :href, :size, :variant
+  attr_accessor :id, :href, :size, :variant, :type
 
-  def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '')
+  def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '', type: :nil)
     @id = id
     @href = href
     @size = size
     @variant = variant
     @class_name = class_name
+    @type = type
   end
 
   def class_name
-    [base_class, size_class, variant_class, @class_name].join(' ')
+    classes = [base_class,  variant_class, @class_name]
+
+    classes << size_class unless ghost?
+
+    classes.join(' ')
   end
 
   def el
@@ -22,6 +27,7 @@ class ButtonComponent < ViewComponent::Base
       'button'
     end
   end
+
   private
 
   def base_class
@@ -52,5 +58,9 @@ class ButtonComponent < ViewComponent::Base
     when :ghost
       'text-black bg-white border-transparent hover:underline'
     end
+  end
+
+  def ghost?
+    variant == :ghost
   end
 end
