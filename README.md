@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Services
 
-Things you may want to cover:
+| Service | Provider       |
+| ------- | -------------- |
+| Hosting | Fly.io         |
+| DB      | Fly.io         |
+| Domain  | Google Domains |
 
-* Ruby version
+## Fly.io Env
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Name             | Purpose                                       | Secret? |
+| ---------------- | --------------------------------------------- | ------- |
+| DATABASE_URL     | Full connection string to the Fly.io database | true    |
+| RAILS_MASTER_KEY | The master key used                           | true    |
