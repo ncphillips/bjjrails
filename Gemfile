@@ -52,6 +52,7 @@ gem "sassc-rails"
 gem "view_component"
 
 gem 'activeadmin'
+gem 'arctic_admin'
 gem 'devise'
 gem 'omniauth'
 gem 'pg'
