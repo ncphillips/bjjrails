@@ -24,3 +24,9 @@ flyctl secrets set DATABASE_URL=postgres://example.com/mydb
 ```
 
 https://fly.io/docs/reference/secrets/#setting-secrets
+
+## How to deploy
+
+```
+fly deploy
+```
