@@ -1,20 +1,22 @@
-<%= content_block(class_name: 'p-6 bg-gray-100') do %>
-  <%= stack(gap: 6, align: :center) do %>
-    <%= heading(size: "big") do %>
-      BJJ Rolls
-    <% end %>
-
-    <p>Help your team off the mats by sharing training footage.</p>
-
-    <%= stack(gap: 3, direction: :horizontal, align: :center, valign: :center) do %>
-      <%= button(id: "cta-signup", href: new_user_registration_path) do %>
-        Sign up
+<%= layout do %>
+  <%= content_block(class_name: 'p-6 bg-gray-100') do %>
+    <%= stack(gap: 6, align: :center) do %>
+      <%= heading(size: "big") do %>
+        BJJ Rolls
       <% end %>
 
-      <p>Or</p>
+      <p>Help your team off the mats by sharing training footage.</p>
 
-      <%= button(id: "cta-login", variant: :secondary, href: new_admin_user_session_path) do %>
-        Sign in
+      <%= stack(gap: 3, direction: :horizontal, align: :center, valign: :center) do %>
+        <%= button(id: "cta-signup", href: new_user_registration_path) do %>
+          Sign up
+        <% end %>
+
+        <p>Or</p>
+
+        <%= button(id: "cta-login", variant: :secondary, href: new_admin_user_session_path) do %>
+          Sign in
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
