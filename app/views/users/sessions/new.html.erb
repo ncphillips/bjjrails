@@ -5,11 +5,12 @@
         Log in
       <% end %>
 
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-        <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-        <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+      <%= content_tag(:div, flash[:error], id: "flash_error", class: 'border p-3 bg-red-200') if flash[:error] %>
+      <%= content_tag(:div, flash[:notice], id: "flash_notice", class: 'border p-3 bg-yellow-200') if flash[:notice] %>
+      <%= content_tag(:div, flash[:alert], id: "flash_alert", class: 'border p-3 bg-yellow-200') if flash[:alert] %>
 
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
         <%= fieldset do %>
           <%= field do %>
             <%= f.label :email %><br />
