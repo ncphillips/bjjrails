@@ -12,7 +12,7 @@
 
     <%= stack(direction: :horizontal, gap: 4) do %>
       <% if current_user.present? %>
-        <%= button(id: "nav-logout", variant: :secondary, href: destroy_user_session_path) do %>
+        <%= button(id: "nav-logout", variant: :secondary, href: destroy_user_session_path, method: :delete) do %>
           Log out
         <% end %> 
       <% else %>

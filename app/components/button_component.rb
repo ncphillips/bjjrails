@@ -1,15 +1,38 @@
 # frozen_string_literal: true
 
 class ButtonComponent < ApplicationComponent
-  attr_accessor :id, :href, :size, :variant, :type
+  attr_accessor :id, :href, :size, :variant, :type, :method
 
-  def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '', type: :nil)
+  def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '', type: :nil, method: nil)
     @id = id
     @href = href
     @size = size
     @variant = variant
     @class_name = class_name
     @type = type
+    @method = method
+  end
+
+  private
+
+  def render_self
+    if button?
+      button_to(content, href, html_attributes.merge({ method: method }))
+    else
+      link_to(content, href, html_attributes)
+    end
+  end
+
+  def button?
+    method == :delete || type == :submit
+  end
+
+  def link?
+    href.present? && method != :delete
+  end
+
+  def html_attributes
+    { id: id, type: :type, class: class_name  }
   end
 
   def class_name
@@ -19,16 +42,6 @@ class ButtonComponent < ApplicationComponent
 
     classes.join(' ')
   end
-
-  def el
-    if href.present? 
-      'a'
-    else
-      'button'
-    end
-  end
-
-  private
 
   def base_class
     'rounded-md border text-center'
@@ -56,7 +69,7 @@ class ButtonComponent < ApplicationComponent
     when :secondary
       'text-black bg-white border-black hover:bg-gray-100 active:bg-gray-200'
     when :ghost
-      'text-black bg-white border-transparent hover:underline'
+      'flex justify-center items-center text-black bg-white border-transparent hover:underline'
     end
   end
 
