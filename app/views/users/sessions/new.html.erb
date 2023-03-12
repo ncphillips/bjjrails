@@ -1,29 +1,31 @@
 <%= layout(title: 'Login', user: current_user) do %>
   <%= page_block do %>
     <%= stack(gap: 5, align: :center) do %>
-      <h2>Log in</h2>
+      <%= heading(as: :h1, size: 1) do %>
+        Log in
+      <% end %>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
         <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
         <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
-        <%= stack(gap: 4) do %>
-          <div class="field">
+        <%= fieldset do %>
+          <%= field do %>
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
+          <% end %>
 
-          <div class="field">
+          <%= field do %>
             <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password" %>
-          </div>
+          <% end %>
 
           <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
+            <%= stack(gap: 2, direction: :horizontal) do %>
+              <div><%= f.check_box :remember_me %></div>
               <%= f.label :remember_me %>
-            </div>
+            <% end %>
           <% end %>
 
           <div class="actions">
@@ -37,7 +39,6 @@
       <%= stack(gap: 1) do %>
         <%= render "users/shared/links" %>
       <% end %>
-
     <% end %>
   <% end %>
 <% end %>

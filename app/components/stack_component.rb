@@ -1,14 +1,19 @@
 # frozen_string_literal: true
 
 class StackComponent < ApplicationComponent
-  attr_accessor :gap, :direction, :align, :valign
+  attr_accessor :as, :gap, :direction, :align, :valign
 
-  def initialize(gap: 0, direction: :vertical, align: nil, valign: nil, class_name: '')
+  def initialize(as: :div, gap: 0, direction: :vertical, align: nil, valign: nil, class_name: '')
+    @as = as
     @gap = gap
     @direction = direction
     @align = align
     @valign = valign
     @class_name = class_name
+  end
+
+  def el
+    as
   end
 
   def class_name
