@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HeadingComponent < ViewComponent::Base
+class HeadingComponent < ApplicationComponent
   attr_accessor :el, :class_name
 
   def initialize(as: :h1, size: 1, class_name: '')

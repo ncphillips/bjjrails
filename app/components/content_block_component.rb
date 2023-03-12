@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ContentBlockComponent < ViewComponent::Base
+class ContentBlockComponent < ApplicationComponent
   attr_accessor :el, :class_name
 
   def initialize(as: :div, class_name: '')

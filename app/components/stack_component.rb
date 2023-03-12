@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class StackComponent < ViewComponent::Base
+class StackComponent < ApplicationComponent
   attr_accessor :gap, :direction, :align, :valign
 
   def initialize(gap: 0, direction: :vertical, align: nil, valign: nil, class_name: '')

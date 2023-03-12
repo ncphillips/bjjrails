@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ButtonComponent < ViewComponent::Base
+class ButtonComponent < ApplicationComponent
   attr_accessor :id, :href, :size, :variant, :type
 
   def initialize(id: '', href: nil, size: :md, variant: :primary, class_name: '', type: :nil)

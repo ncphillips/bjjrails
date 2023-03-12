@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class GymCardComponent < ViewComponent::Base
+class GymCardComponent < ApplicationComponent
   attr_accessor :gym
 
   def initialize(gym:)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PageBlockComponent < ViewComponent::Base
+class PageBlockComponent < ApplicationComponent
   attr_accessor :el, :class_name
 
   def initialize(as: :div, class_name: '')

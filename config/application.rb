@@ -31,7 +31,9 @@ class ActionView::Base
     end
 
     if view_class.present?
-      render(view_class.public_send("new", *args, **kwargs), &block)
+      ctx = { current_user: current_user }
+
+      render(view_class.public_send("new_with_context", ctx, *args, **kwargs), &block)
     else
       super
     end
